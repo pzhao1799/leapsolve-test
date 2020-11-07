@@ -1,0 +1,32 @@
+.euiPage {
+  min-height: 100vh;
+  background-color: white;
+}
+
+.solve {
+  color: blueviolet;
+}
+
+#root {
+  background-color: white;
+}
+
+.borderless {
+  border: 0;
+}
+
+.shadowless {
+  box-shadow: none;
+}
+
+#user-cta {
+  padding: 10vh 50px;
+}
+
+#solver-cta {
+  padding: 10vh 50px;
+}
+
+#cta-group {
+  min-height: 80vh;
+}
