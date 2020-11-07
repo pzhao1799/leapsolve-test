@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/leapsolve-test/precache-manifest.d68100479e3e1761704afdbd3fac86c4.js"
+  "/leapsolve-test/precache-manifest.c31275e8d686836c7105a86240b798c8.js"
 );
 
 self.addEventListener('message', (event) => {
