@@ -35,26 +35,41 @@ class Dashboard extends Component {
   }
 
   updateData = () => {
-    //Retrieve status of the solver
-    this.props.firebase
-      .getStatus()
-      .then((profile) => {
-        this.setState({
-          working: profile.val().working,
-          matched: profile.val().matched,
-          potential: profile.val().potential,
-        });
-      })
-      .then(() => {
-        //Get question data if matched
-        if (this.state.matched) {
-          this.props.firebase
-            .doGetQuestion(this.state.matched)
-            .then((question) => {
-              this.setState({ question: question.val() });
-            });
-        }
+    let getStatus = this.props.firebase.db.ref("users/" + this.props.firebase.getUid());
+    getStatus.on("value", (profile) => {
+      this.setState({
+        working: profile.val().working,
+        matched: profile.val().matched,
+        potential: profile.val().potential,
       });
+      if (this.state.matched) {
+        this.props.firebase
+          .doGetQuestion(this.state.matched)
+          .then((question) => {
+            this.setState({ question: question.val() });
+          });
+      }
+    });
+    //Retrieve status of the solver
+    // this.props.firebase
+    //   .getStatus()
+    //   .then((profile) => {
+    //     this.setState({
+    //       working: profile.val().working,
+    //       matched: profile.val().matched,
+    //       potential: profile.val().potential,
+    //     });
+    //   })
+    //   .then(() => {
+    //     //Get question data if matched
+    //     if (this.state.matched) {
+    //       this.props.firebase
+    //         .doGetQuestion(this.state.matched)
+    //         .then((question) => {
+    //           this.setState({ question: question.val() });
+    //         });
+    //     }
+    //   });
 
     this.updateQuestions();
   };
@@ -72,7 +87,7 @@ class Dashboard extends Component {
         qid,
         selected: false,
       }));
-      
+
       this.setState({
         openQuestions,
       });
