@@ -15,7 +15,6 @@ import {
   EuiText,
   EuiSpacer,
   EuiCallOut,
-  EuiToast,
 } from "@elastic/eui";
 
 import { withFirebase } from "components/Firebase";
