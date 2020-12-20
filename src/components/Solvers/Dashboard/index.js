@@ -60,8 +60,8 @@ class Dashboard extends Component {
   };
 
   updateQuestions = () => {
-    // Retrieves open questions
-    this.props.firebase.doGetOpenQuestions().then((questions) => {
+    let getOpenQuestions = this.props.firebase.db.ref("/open-questions/");
+    getOpenQuestions.on('value', (questions) =>{
       const q = questions.val();
       if (!q) return;
 
@@ -72,11 +72,28 @@ class Dashboard extends Component {
         qid,
         selected: false,
       }));
-
+      
       this.setState({
         openQuestions,
       });
     });
+    // Retrieves open questions
+    // this.props.firebase.doGetOpenQuestions().then((questions) => {
+    //   const q = questions.val();
+    //   if (!q) return;
+
+    //   const qids = Object.keys(q);
+
+    //   const openQuestions = qids.map((qid) => ({
+    //     ...q[qid],
+    //     qid,
+    //     selected: false,
+    //   }));
+
+    //   this.setState({
+    //     openQuestions,
+    //   });
+    // });
   };
 
   startWorking = (event) => {
