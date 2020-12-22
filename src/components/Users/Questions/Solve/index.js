@@ -116,6 +116,10 @@ class Solve extends Component {
     );
   }
 
+  onClick = (event) => {
+    this.props.history.push("/user/verification");
+  };
+
   renderMessaging() {
     const onSubmit = (e) => {
       e.preventDefault();
@@ -155,6 +159,13 @@ class Solve extends Component {
             </EuiFlexItem>
           </EuiFlexGroup>
         </EuiForm>
+        <EuiSpacer />
+        {/** TODO: make it have a loading spinner! */}
+        <EuiButton 
+          // isDisabled={this.state.timer !== undefined}
+          onClick={this.onClick}>
+            I'm Done!
+        </EuiButton>
       </>
     );
   }
