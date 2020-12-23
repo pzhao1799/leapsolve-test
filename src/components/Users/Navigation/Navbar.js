@@ -83,6 +83,9 @@ class Navigation extends PureComponent {
             <EuiCustomHeaderLink to="/user/questions">
               Questions
             </EuiCustomHeaderLink>
+            <EuiCustomHeaderLink to="/user/newquestion">
+              New Question
+            </EuiCustomHeaderLink>
           </EuiHeaderLinks>
 
           {this.renderTemps()}

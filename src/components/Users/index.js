@@ -13,6 +13,7 @@ import SignIn from "../Common/SignIn/SignInForm";
 import Confirm from "./Landing/Confirm";
 import Layout from "./Layout";
 import Verification from "./Questions/Verification";
+import NewQuestion from "./NewQuestion";
 
 class User extends Component {
   render() {
@@ -40,6 +41,9 @@ class User extends Component {
           </ProtectedRoute>
           <ProtectedRoute path="/user/verification">
             <Verification />
+          </ProtectedRoute>
+          <ProtectedRoute path="/user/newquestion">
+            <NewQuestion />
           </ProtectedRoute>
 
           <Route path="/user/">

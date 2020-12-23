@@ -12,6 +12,8 @@ import {
   EuiPageHeaderSection,
   EuiText,
   EuiTitle,
+  EuiSpacer,
+  EuiAccordion
 } from "@elastic/eui";
 
 import { withFirebase } from "components/Firebase";
@@ -21,6 +23,7 @@ import "./Questions.css";
 import Solve from "./Solve";
 import Summary from "./Summary";
 import SolutionBlurb from "./SolutionBlurb";
+import QuestionBar from "../QuestionBar/QuestionBar";
 
 class Questions extends Component {
   constructor(props) {
